@@ -11,7 +11,9 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             const temp = body.currently.temperature
             const percip = body.currently.precipProbability
-            callback(undefined, body.daily.data[0].summary + ' It is currenlty ' + temp + ' degrees out. There is a ' + percip + '% chance of rain.' )
+            const tempHigh = body.daily.data[0].temperatureHigh
+            const tempLow = body.daily.data[0].temperatureLow
+            callback(undefined, body.daily.data[0].summary + ' It is currenlty ' + temp + ' degrees out. There is a ' + percip + '% chance of rain. Todays high is ' + tempHigh + ' and todays low is ' + tempLow + '.')
         }
     })
 }
